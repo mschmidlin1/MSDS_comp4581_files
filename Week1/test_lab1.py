@@ -12,7 +12,12 @@ class TestMatrixMult(unittest.TestCase):
             self.assertTrue('Cannot do dot of arrays of different length.' in context.exception)
 
 
+    def test_row_column(self):
+        self.assertEqual([1, 2, 3, 4], row([[4, 6, 1, 6], [34, 72, 465, 7], [1, 2, 3, 4]], 2))
+        self.assertEqual([34, 72, 465, 7], row([[4, 6, 1, 6], [34, 72, 465, 7], [1, 2, 3, 4]], 1))
 
+        self.assertEqual([4, 34, 1], column([[4, 6, 1, 6], [34, 72, 465, 7], [1, 2, 3, 4]], 0))
+        self.assertEqual([6, 7, 4], column([[4, 6, 1, 6], [34, 72, 465, 7], [1, 2, 3, 4]], 3))
 
 
     def test_matMult(self):

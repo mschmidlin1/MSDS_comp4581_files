@@ -13,6 +13,17 @@ def dot(X, Y):
     return total
 
 
+def row(M, index):
+    return M[index]
+
+def column(M, index):
+    col = []
+    for row in M:
+        col.append(row[index])
+
+    return col
+
+
 def printMatrix(m): 
     for row in m:
         print(row)
