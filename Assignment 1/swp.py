@@ -1,5 +1,5 @@
 from collections import defaultdict
-
+import numpy as np
 
 def loadGraph(edgeFilename):
     """
@@ -40,6 +40,20 @@ def BFS(G, s):
                 q.enqueue(i)
                 vertex_distances[i] = vertex_distances[vertex] + 1
     return sorted(vertex_distances.items())
+
+def distanceDistribution(G):
+    unique_verts = set(G.keys())
+    dists=np.array([], dtype=int)
+    for s in unique_verts:
+        verts_dists = BFS(G, s)
+        # verts = np.array(verts_dists)[:, 0] 
+        dists = np.append(dists, np.array([v[1] for v in verts_dists]))
+    uniques = np.unique(dists, return_counts=True)[0]
+    counts = np.unique(dists, return_counts=True)[1]
+    percent_frequencies = counts*100/np.sum(counts)
+    freq_dict = { u:p for u, p in zip(uniques, percent_frequencies) }
+    return freq_dict
+
 
 class MyQueue():
     def __init__(self):

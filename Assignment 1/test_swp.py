@@ -35,7 +35,9 @@ class TestMatrixMult(unittest.TestCase):
         s = "C"
         self.assertEqual([("A", 1), ("B", 1), ("C", 0), ("D", 1)], BFS(G, s))
 
-
+    def test_distancedist(self):
+        G = {"A": ["B", "C"], "B": ["A", "C"], "C": ["A", "B", "D"], "D": ["C"]}
+        self.assertEqual({0: 25.0, 1: 50.0, 2: 25.0}, distanceDistribution(G))
 
 if __name__ == '__main__':
     unittest.main()
