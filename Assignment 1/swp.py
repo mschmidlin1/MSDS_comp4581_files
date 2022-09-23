@@ -1,5 +1,6 @@
 from collections import defaultdict
 import numpy as np
+import os
 
 def loadGraph(edgeFilename):
     """
@@ -68,8 +69,17 @@ class MyQueue():
 
 
 def main():
-    pass
+    edges, G = loadGraph(os.path.join(os.path.dirname(__file__), "edges.txt"))
+    distance_dict = distanceDistribution(G)
+    print(distance_dict)
+
+
 
 
 if __name__ == "__main__":
     main()
+
+
+
+#{0: 0.02475860361475613, 1: 1.081728463156421, 2: 16.649587786719984, 3: 24.408292973662768, 4: 35.930685962889314, 5: 15.724195898604599, 6: 4.151243621778524, 7: 1.933757893222438, 8: 0.0957487963511985}
+# ~93% of people are 6 or less degrees of separation away
