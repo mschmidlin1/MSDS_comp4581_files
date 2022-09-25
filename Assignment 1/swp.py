@@ -51,8 +51,8 @@ def distanceDistribution(G):
         dists = np.append(dists, np.array([v[1] for v in verts_dists]))
     uniques = np.unique(dists, return_counts=True)[0]
     counts = np.unique(dists, return_counts=True)[1]
-    percent_frequencies = counts*100/np.sum(counts)
-    freq_dict = { u:p for u, p in zip(uniques, percent_frequencies) }
+    percent_frequencies = counts[1:]*100/np.sum(counts)
+    freq_dict = { u:p for u, p in zip(uniques[1:], percent_frequencies) }
     return freq_dict
 
 
@@ -81,5 +81,5 @@ if __name__ == "__main__":
 
 
 
-#{0: 0.02475860361475613, 1: 1.081728463156421, 2: 16.649587786719984, 3: 24.408292973662768, 4: 35.930685962889314, 5: 15.724195898604599, 6: 4.151243621778524, 7: 1.933757893222438, 8: 0.0957487963511985}
-# ~93% of people are 6 or less degrees of separation away
+#{1: 1.081728463156421, 2: 16.649587786719984, 3: 24.408292973662768, 4: 35.930685962889314, 5: 15.724195898604599, 6: 4.151243621778524, 7: 1.933757893222438, 8: 0.0957487963511985}
+# ~97% of people are 6 or less degrees of separation away
