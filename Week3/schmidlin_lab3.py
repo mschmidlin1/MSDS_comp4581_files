@@ -40,7 +40,7 @@ def main():
     print("This program will run forever,")
     print("If you wish to quit, press 'Ctrl+c'")
     print("-"*50)
-    with open('decryption_time.csv', 'w') as f:
+    with open('decryption_time1.csv', 'w') as f:
         f.write("Num Encryption bits,Decryption time (ms)\n")
     print()
     print("Num Encryption bits \t\t\t Decryption time (ms)")
@@ -53,7 +53,7 @@ def main():
         t = (t2-t1)*1000
 
         print(f"{n} \t\t\t\t\t {t}")
-        with open('decryption_time.csv', 'a') as f:
+        with open('decryption_time1.csv', 'a') as f:
             f.write(f"{n},{t}\n")
         n+=1
 
