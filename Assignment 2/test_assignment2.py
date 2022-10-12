@@ -49,12 +49,12 @@ class TestMatrixMult(unittest.TestCase):
 
 
 
-        num_tests = 10
+        num_tests = 10000
         for i in range(num_tests):
             arr_length = np.random.randint(low=1, high=10)
             prices = np.random.uniform(low=-100, high=100, size=arr_length)
-            print(f"Arr Length: {arr_length}")
-            print('[',','.join(np.array2string(prices)), ']')
+            #print(f"Arr Length: {arr_length}")
+            #[print(price, end=',') for price in prices]
             truth = MaxProfit(prices)
             myanswer = maxProfit(prices)
             if truth!=myanswer:
@@ -63,6 +63,7 @@ class TestMatrixMult(unittest.TestCase):
                 print(f"My Answer: {myanswer}")
                 exit()
             self.assertEqual(truth, myanswer)
+
 
 
 

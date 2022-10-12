@@ -86,7 +86,8 @@ def maxProfit_Algo(A):
 
 
 def maxProfit(prices):
-
+    if len(prices)==1:
+        return 0,0,0
     A = prices_to_changes(prices)
 
     start, end, profit = maxProfit_Algo(A)
