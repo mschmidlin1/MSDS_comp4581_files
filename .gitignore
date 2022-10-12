@@ -3,4 +3,5 @@
 !*.py
 !*.ipynb
 !*.pdf
+!MastersTheorem.PNG
 !.gitignore
