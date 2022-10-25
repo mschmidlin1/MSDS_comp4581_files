@@ -70,8 +70,10 @@ class MyQueue():
 
 def main():
     edges, G = loadGraph(os.path.join(os.path.dirname(__file__), "edges.txt"))
-    distance_dict = distanceDistribution(G)
-    print(distance_dict)
+    print(BFS(G, 0))
+    # distance_dict = distanceDistribution(G)
+    # print(distance_dict)
+
 
 
 
