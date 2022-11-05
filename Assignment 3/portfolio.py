@@ -12,7 +12,7 @@ def loadInvestments(fname):
     df.rename(columns={'2020-01': 'cost'}, inplace=True)
     df.drop(columns=['2019-01'], inplace=True)
     options = df.values.tolist()
-    options = sorted(options, key=lambda x: x[1])
+    # options = sorted(options, key=lambda x: x[1])
     return options
 
 def traceback(dp_table, step, costs):
@@ -36,7 +36,6 @@ def traceback(dp_table, step, costs):
     return options
 
 def optimizeInvestments(options, total, step):
-    # options = np.array(options)
     names = [x[0] for x in options]
     costs = [x[1] for x in options]
     ROIs = [x[2] for x in options]
@@ -95,10 +94,15 @@ def optimizeInvestments(options, total, step):
 
 
 
+
 def main():
     options = loadInvestments("Assignment 3/Metro.csv")
-    for op in options[:5]:
-        print(op)
+    # for op in options[:5]:
+    #     print(op)
 
+    max_profit, investment_names = optimizeInvestments(options, 1000000, 1000)
+
+    print(max_profit)
+    print(investment_names)
 if __name__=="__main__":
     main()
