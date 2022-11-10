@@ -3,5 +3,6 @@
 !*.py
 !*.ipynb
 !*.pdf
+!*.docx
 !MastersTheorem.PNG
 !.gitignore

@@ -2,6 +2,7 @@ from inspect import trace
 import pandas as pd
 import numpy as np
 import math
+import time
 
 def loadInvestments(fname):
     df = pd.read_csv(fname)
@@ -96,12 +97,15 @@ def optimizeInvestments(options, total, step):
 
 
 def main():
+    
     options = loadInvestments("Assignment 3/Metro.csv")
     # for op in options[:5]:
     #     print(op)
-
+    start_time = time.perf_counter()
     max_profit, investment_names = optimizeInvestments(options, 1000000, 1000)
 
+    end_time = time.perf_counter()
+    print(f"Calculations done in {(end_time-start_time):0.4f} seconds")
     print(max_profit)
     print(investment_names)
 if __name__=="__main__":
